@@ -1,0 +1,64 @@
+body {
+  overflow: scroll;
+}
+
+.container {
+  margin: auto 10px;
+}
+
+.heading {
+  width: 80%;
+  position: absolute;
+  right: 0;
+  max-height: 80px;
+}
+.heading .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+.heading .logo {
+  width: 100px;
+}
+.heading .logo img {
+  max-width: 100%;
+}
+.heading div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Small devices (landscape phones, 510px and up) */
+@media (min-width: 510px) {
+  .container {
+    max-width: 500px;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 720px) {
+  .container {
+    max-width: 710px;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 959px) {
+  .container {
+    max-width: 945px;
+  }
+}
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1100px) {
+  .container {
+    max-width: 1080px;
+  }
+}
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1300px) {
+  .container {
+    max-width: 1280px;
+  }
+}
