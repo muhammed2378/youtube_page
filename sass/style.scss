@@ -1,5 +1,6 @@
 @use "colors/color" as *;
 @use "sizes/size";
+@use "rules/mixins" as *;
 
 $border-design: 1px solid map-get($map: $primary_colors, $key: text-color);
 
@@ -14,7 +15,7 @@ body {
 .heading {
     max-height: 65px;
     .container {
-        max-width: 96%;
+        max-width: 98%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -29,7 +30,10 @@ body {
     .bar-icon{
         width: 20%;
         margin-right: 25px;
+        cursor: pointer;
+        @include hoverCircle();
         i {
+            margin: 0 auto;
             font-size: size.$icon-size;
             color: map-get($map: $primary_colors, $key: title-color)
         }
@@ -51,17 +55,19 @@ body {
 
         // the field design
         form {
+            width: size.$field-width;
             position: relative;
             border: $border-design;
             border-left: none;
             border-right: none;
             padding: size.$padding-search;
+            box-shadow: 0px -.5px .9px #f3f3f3 inset, -.5px 0px .9px #f3f3f3 inset;
             span {
                 position: absolute;
                 top: -1px;
                 left: -30px;
                 width: 30px;
-                height: size.$fieldBtn-height + 2px + size.$padding-search;
+                height: size.$fieldBtn-height + 2px;
                 border: $border-design;
                 border-right: none;
                 border: {
@@ -73,7 +79,7 @@ body {
             }
         }
         .search {
-            width: size.$field-width;
+            width: 100%;
             height: size.$fieldBtn-height - 10px;
             border: none;
             border-radius: size.$border-rd;
@@ -85,7 +91,8 @@ body {
             }
 
             &::placeholder {
-                color: map-get($map: $primary_colors,  $key: text-color);
+                color: #888888;
+                font-weight: 420;
             }
 
             &::-webkit-search-cancel-button {
@@ -104,7 +111,7 @@ body {
         // button design
         .btn {
             width: 64px;
-            height: size.$fieldBtn-height + 2px + size.$padding-search;
+            height: size.$fieldBtn-height + 2px;
             display: block;
             border-left: none;
             border-radius: 0 size.$border-rd size.$border-rd 0;
@@ -113,6 +120,7 @@ body {
             background-color: #f0f0f0;
             transition: .4s linear;
             cursor: pointer;
+            @include popup("Search", 70px);
             & i {
                 padding: 0 10px;
                 font-size: size.$icon-size - 5px;
@@ -123,18 +131,51 @@ body {
         }
         .mic {
             margin-left: 20px;
+            cursor: pointer;
+            text-align: center;
+            
             i {
+                margin: 0 auto;
                 font-size: size.$icon-size;
             }
+
+            @include popup("Search with your voice", 170px);
+            @include hoverCircle();
         }
     }
+
+
     // the profile and your channel section
     .your-channel {
-        width: 20%;
-        width: 100px;
-        justify-content: end;
+        width: 12%;
+        justify-content: space-around;
         div {
-            margin-left: 20px;
+            cursor: pointer;
+            i {
+                font-size: size.$icon-size;
+                margin: 0 auto
+            }
+            
+            @include hoverCircle();
+        }
+
+        .post-video {
+            @include popup("Create", 70px);
+        }
+        .bell {
+            @include popup("Notification", 90px);
+        }
+
+        .profile {
+            width: size.$icon-size + 15px;
+            height: size.$icon-size + 15px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            img {
+                height: 100%;
+                max-width: 100%;
+            }
         }
     }
 
