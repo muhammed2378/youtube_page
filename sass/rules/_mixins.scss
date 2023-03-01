@@ -49,3 +49,9 @@
         @content;
     }
 }
+
+@mixin mobileMin($width){
+    @media (min-width:$width) {
+        @content;
+    }
+}
