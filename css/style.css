@@ -35,7 +35,7 @@ body {
   width: 200px;
 }
 .heading .bar-icon {
-  margin-right: 25px;
+  margin-right: 15px;
   cursor: pointer;
 }
 .heading .bar-icon {
@@ -158,7 +158,7 @@ body {
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 0px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
   .heading .search-engine form {
     -ms-flex-preferred-size: 60%;
         flex-basis: 60%;
@@ -257,16 +257,25 @@ body {
   background-color: #d3d3d3;
 }
 .heading .search-engine .mic {
+  width: 45px;
   margin-left: 20px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
   text-align: center;
+}
+.heading .search-engine .mic:hover {
+  background-color: #e5e5e5;
 }
 @media (max-width: 650px) {
   .heading .search-engine .mic {
     margin-left: 15px;
   }
 }
-@media (max-width: 428px) {
+@media (max-width: 483px) {
   .heading .search-engine .mic {
     display: none;
   }
@@ -299,15 +308,91 @@ body {
 .heading .search-engine .mic:hover span {
   display: block;
 }
-.heading .search-engine .mic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+.heading .search-engine .back {
+  display: none;
 }
-.heading .search-engine .mic:hover {
-  background-color: #e5e5e5;
+@media (max-width: 650px) {
+  .heading .active {
+    background-color: white;
+  }
+  .heading .active .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .heading .active .center form {
+    -ms-flex-preferred-size: 384px;
+        flex-basis: 384px;
+  }
+  .heading .active .center form span {
+    top: -0.4px;
+    height: 41.4px;
+  }
+  .heading .active .center .btn {
+    height: 41.4px;
+  }
+  .heading .active .search-en {
+    display: none;
+  }
+  .heading .active .mic {
+    width: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .heading .active .mic span {
+    -webkit-transform: translateX(-90%);
+            transform: translateX(-90%);
+  }
+  .heading .active .back {
+    min-width: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .heading .active .back i {
+    font-size: 20px;
+    margin: auto;
+  }
+  .heading .active .back {
+    position: relative;
+  }
+  .heading .active .back span {
+    text-align: center;
+    padding: 8px 5px;
+    display: none;
+    width: 50px;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color: #707070;
+    border-radius: 2px;
+  }
+  .heading .active .back span::after {
+    content: "Back";
+    font-size: 13px;
+    color: #F2F2F2;
+  }
+  .heading .active .back:hover span {
+    display: block;
+  }
+  .heading .active .back {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  .heading .active .back:hover {
+    background-color: #e5e5e5;
+  }
 }
 .heading .your-channel {
   -webkit-box-pack: end;
@@ -385,7 +470,7 @@ body {
 .heading .your-channel .bell:hover span {
   display: block;
 }
-@media (max-width: 428px) {
+@media (max-width: 483px) {
   .heading .your-channel .bell {
     display: none;
   }
@@ -400,4 +485,13 @@ body {
 .heading .your-channel .profile img {
   height: 100%;
   max-width: 100%;
+}
+
+@media (max-width: 650px) {
+  .active .logo-bar {
+    display: none;
+  }
+  .active .your-channel {
+    display: none;
+  }
 }

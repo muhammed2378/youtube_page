@@ -1,26 +1,53 @@
 // search engine border
 
-let searchEngine = document.querySelector(".search-engine form input")
-let searchEngineExt = document.querySelector(".search-engine form span")
+let inputField = document.querySelector(".search-engine form input")
+let inputFieldExt = document.querySelector(".search-engine form span")
 
-searchEngine.onfocus = () => {
+inputField.onfocus = () => {
     // make a border around the form expet the left
-    searchEngine.parentElement.style.border = "1px solid #1c62b9";
-    searchEngine.parentElement.style.borderLeft = "0";
+    inputField.parentElement.style.border = "1px solid #1c62b9";
+    inputField.parentElement.style.borderLeft = "0";
 
     // make  aborder around the span from the all directions expect the right
-    searchEngineExt.style.border = "1px solid #1c62b9"
-    searchEngineExt.style.borderRight = "0"
-    // searchEngineExt.style.height = "100px"
+    inputFieldExt.style.border = "1px solid #1c62b9"
+    inputFieldExt.style.borderRight = "0"
+    // inputFieldExt.style.height = "100px"
 }
 
-searchEngine.onblur = () => {
+inputField.onblur = () => {
     // set it to default
-    searchEngine.parentElement.style.border = "1px solid #888888";
-    searchEngine.parentElement.style.borderLeft = "0";
+    inputField.parentElement.style.border = "1px solid #888888";
+    inputField.parentElement.style.borderLeft = "0";
 
     // make  aborder around the span from the all directions expect the right
-    searchEngineExt.style.border = "1px solid #888888"
-    searchEngineExt.style.borderRight = "0"
+    inputFieldExt.style.border = "1px solid #888888"
+    inputFieldExt.style.borderRight = "0"
+}
+
+
+
+
+// show the field when you click the search icon under 650px screen width
+
+// the center of the heading
+let searchEngine = document.querySelector(".search-engine");
+
+// the search icon
+let searchIcon = document.querySelector(".search-engine .search-en");
+
+
+// the back icon
+let backIcon = document.querySelector(".search-engine .back");
+
+// show the field on clicking the the searchIcon
+searchIcon.onclick = function () {
+    searchEngine.parentElement.parentElement.classList.add("active");
+    searchEngine.classList.add("active");
+};
+
+// hide the field on clicking the back icon
+backIcon.onclick = function () {
+    searchEngine.parentElement.parentElement.classList.remove("active");
+    searchEngine.classList.remove("active");
 }
 
