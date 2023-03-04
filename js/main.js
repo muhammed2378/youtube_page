@@ -99,6 +99,9 @@ barIcon.onclick = () => {
 
         // remove the 'small' class if it's exsit previously
         settingsBox.classList.remove("small")
+
+        // remove the 'small' class if it's exsit previously
+        contentSelector.classList.toggle("small")
     }
     
 }
