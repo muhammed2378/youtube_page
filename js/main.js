@@ -70,7 +70,7 @@ let settingsBoxOpt = document.querySelector(".settings-box div")
 let iconBarBox = document.querySelector(".settings-box .logo-bar .bar-icon");
 
 // the previous icon
-let previousIcon = document.querySelector(".previous");
+// let previousIcon = document.querySelector(".previous");
 
 
 // create layer 
@@ -83,7 +83,7 @@ barIcon.onclick = () => {
     if(window.innerWidth > 1320) {
         // remove the small class from the content selectors and the settings box
         contentSelector.classList.toggle("small")
-        previousIcon.classList.toggle("small")
+        // previousIcon.classList.toggle("small")
         settingsBox.classList.toggle("small")
     } else {
         // if it's not greater than 1320 screen width
