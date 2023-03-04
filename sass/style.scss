@@ -18,7 +18,8 @@ body {
     padding-top: 10px;
     max-height: 65px;
     .container {
-        max-width: 96%;
+        max-width: 100%;
+        padding: 0 30px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -127,6 +128,7 @@ body {
             color: map-get($map: $primary_colors, $key: title-color);
             font-weight: 400;
             font-size: 18px;
+            position: relative;
             &:focus {
                 outline: none;
             }
@@ -168,6 +170,7 @@ body {
             background-color: #f0f0f0;
             transition: .4s linear;
             cursor: pointer;
+            position: relative;
             @include popup("Search", 70px);
             & i {
                 padding: 0 10px;
@@ -178,6 +181,7 @@ body {
             }
         }
         .mic {
+            position: relative;
             width: size.$circl-hover + 5px;
             margin-left: 20px;
             min-width: size.$circl-hover;
@@ -206,6 +210,7 @@ body {
         }
 
         .back {
+            position: relative;
             display: none;
         }
 
@@ -237,6 +242,7 @@ body {
                 display: none;
             }
             .mic {
+                
                 width: 50px;
                 display: flex;
                 span {
@@ -245,6 +251,7 @@ body {
             }
 
             .back {
+                position: relative;
                 min-width: 40px;
                 margin-right: 40px;
                 cursor: pointer;
@@ -282,9 +289,11 @@ body {
         }
 
         .post-video {
+            position: relative;
             @include popup("Create", 70px);
         }
         .bell {
+            position: relative;
             @include popup("Notification", 90px);
             @include mobile(size.$disappear-on-mobile) {
                 display: none;
@@ -320,12 +329,12 @@ body {
 // Start the content selectors design
 
 .content-selectors {
-    padding: 20px;
-    // margin-left: 100px;
-    position: absolute;
+    position: fixed;
     display: flex;
-    cursor: pointer;
-    div {
+    left: 270px;
+    padding: 20px;
+    > div {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         width: max-content;
@@ -333,7 +342,7 @@ body {
         text-align: center;
         background-color: map-get($map: $primary_colors, $key: hover-color);
         border-radius: 10px;
-        padding: 0 10px;
+        padding: 0 5px;
         font-size: 15px;
         p {
             margin: 10px;
@@ -341,9 +350,173 @@ body {
         }
     }
 
+    
+
     .active {
         background-color: map-get($map: $primary_colors, $key: title-color);
         color: map-get($map: $primary_colors, $key: hover-color)
     }
 
+}
+
+// .previous {
+//     position: fixed;
+//     top: 70px;
+//     left: 270px;
+//     z-index: 2;
+//     align-items: center;
+//     @include popup("Previous", 70px);
+//     @include hoverCircle();
+// }
+
+// .next {
+//     position: fixed;
+//     z-index: 2;
+//     top: 70px;
+//     right: 0;
+//     @include popup("Previous", 70px);
+//     @include hoverCircle();
+// }
+
+
+// end the content selectors
+
+// #########################
+
+// Start the settings-box
+
+
+.settings-box {
+    
+    position: fixed;
+    padding: 15px 10px 0;
+    height: 1000px;
+    width: size.$box-size;
+    color: #000;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    .logo-bar {
+        display: none;
+        justify-content: start;
+        margin-bottom: 20px;
+
+        .bar-icon {
+            margin-left: 20px;
+            margin-right: 13px;
+        }
+        .logo {
+            width: 100px;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+    > div:not(:first-child) {
+        cursor: pointer;
+        &:hover {
+            background-color: map-get($map: $primary_colors, $key: hover-color);
+        }
+    }
+    
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+        .icon {
+            flex-basis: 78px;
+            i {
+                font-size: size.$icon-size - 3px;
+            }
+        }
+        p {
+            flex-grow: 1;
+            font-size: 15px;
+            color: map-get($map: $primary_colors, $key: title-color);
+            font-weight: 450;
+        }
+        
+        
+    }
+
+    .active {
+        background-color: map-get($map: $primary_colors, $key: hover-color);
+        
+    }
+}
+
+// this class to make a box for the settings on clicking the bar icon 
+.box {
+    z-index: 2;
+    top: 0;
+    transition: .1s linear;
+    .logo-bar {
+        display: flex;
+        .bar-icon {
+            cursor: pointer;
+            i {
+                font-size: size.$icon-size;
+            }
+            @include hoverCircle();
+        }
+    }
+}
+
+// modifiy the box under 1320px screen width to be small
+
+@include customeQuerry(1320px) {
+    .content-selectors {
+        left: size.$box-size-small + 10px;
+    }
+    .previous {
+        left: size.$box-size-small + 10px;
+    }
+    .settings-box.all {
+        width: size.$box-size-small;
+        padding: 10px;
+        > div {
+            padding: 5px;
+            flex-direction: column;
+            margin-bottom: 20px;
+            .icon {
+                flex-basis: 0;
+                margin: 10px;
+            }
+            p {
+                font-size: 12px;
+                margin: 2px 0 5px 0;
+            }
+        }
+        .active {
+            background-color: white;
+        }
+    }
+}
+
+// on clicking the icon bar above the 1320px width modify the box to this
+@include modifiedBox;
+
+// hide the box under 790px screen width
+@include mobile(790px) {
+    .content-selectors {
+        left: 20px;
+    }
+    .settings-box.all {
+        display: none;
+    }
+}
+
+
+
+// a layer above everything except the settings-box
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: map-get($map: $primary_colors, $key: layer);
 }

@@ -5,9 +5,6 @@
 // on hover pop up mixin
 
 @mixin popup($text, $width) {
-    & {
-        position: relative;
-    }
     & span {
         &::after {
             content: $text;
@@ -56,3 +53,41 @@
         @content;
     }
 }
+
+@mixin customeQuerry($width) {
+    @media (max-width:$width) {
+        @content;
+    }
+}
+
+// small box
+
+@mixin modifiedBox{
+    .content-selectors.small {
+        left: $box-size-small + 10px;
+    }
+    .previous.small {
+        left: $box-size-small + 10px;
+    }
+    .settings-box.small {
+        width: $box-size-small;
+        padding: 10px;
+        > div {
+            padding: 5px;
+            flex-direction: column;
+            margin-bottom: 20px;
+            .icon {
+                flex-basis: 0;
+                margin: 10px;
+            }
+            p {
+                font-size: 12px;
+                margin: 2px 0 5px 0;
+            }
+        }
+        .active {
+            background-color: white;
+        }
+    }
+}
+

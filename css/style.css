@@ -12,7 +12,8 @@ body {
   max-height: 65px;
 }
 .heading .container {
-  max-width: 96%;
+  max-width: 100%;
+  padding: 0 30px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -84,9 +85,6 @@ body {
     margin: 0 auto;
     font-size: 20px;
   }
-}
-.heading .search-engine .search-en {
-  position: relative;
 }
 .heading .search-engine .search-en span {
   text-align: center;
@@ -179,6 +177,7 @@ body {
   color: #030303;
   font-weight: 400;
   font-size: 18px;
+  position: relative;
 }
 .heading .search-engine .search:focus {
   outline: none;
@@ -225,8 +224,6 @@ body {
   -webkit-transition: 0.4s linear;
   transition: 0.4s linear;
   cursor: pointer;
-}
-.heading .search-engine .btn {
   position: relative;
 }
 .heading .search-engine .btn span {
@@ -259,6 +256,7 @@ body {
   background-color: #d3d3d3;
 }
 .heading .search-engine .mic {
+  position: relative;
   width: 45px;
   margin-left: 20px;
   min-width: 40px;
@@ -286,9 +284,6 @@ body {
   margin: 0 auto;
   font-size: 20px;
 }
-.heading .search-engine .mic {
-  position: relative;
-}
 .heading .search-engine .mic span {
   text-align: center;
   padding: 8px 5px;
@@ -312,6 +307,7 @@ body {
   display: block;
 }
 .heading .search-engine .back {
+  position: relative;
   display: none;
 }
 @media (max-width: 650px) {
@@ -351,6 +347,7 @@ body {
             transform: translateX(-90%);
   }
   .heading .active .back {
+    position: relative;
     min-width: 40px;
     margin-right: 40px;
     cursor: pointer;
@@ -361,9 +358,6 @@ body {
   .heading .active .back i {
     font-size: 20px;
     margin: auto;
-  }
-  .heading .active .back {
-    position: relative;
   }
   .heading .active .back span {
     text-align: center;
@@ -502,14 +496,15 @@ body {
   }
 }
 .content-selectors {
-  padding: 20px;
-  position: absolute;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  cursor: pointer;
+  left: 270px;
+  padding: 20px;
 }
-.content-selectors div {
+.content-selectors > div {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -523,14 +518,197 @@ body {
   text-align: center;
   background-color: #f2f2f2;
   border-radius: 10px;
-  padding: 0 10px;
+  padding: 0 5px;
   font-size: 15px;
 }
-.content-selectors div p {
+.content-selectors > div p {
   margin: 10px;
   padding: 10px auto;
 }
 .content-selectors .active {
   background-color: #030303;
   color: #f2f2f2;
+}
+
+.settings-box {
+  position: fixed;
+  padding: 15px 10px 0;
+  height: 1000px;
+  width: 250px;
+  color: #000;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.settings-box .logo-bar {
+  display: none;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 20px;
+}
+.settings-box .logo-bar .bar-icon {
+  margin-left: 20px;
+  margin-right: 13px;
+}
+.settings-box .logo-bar .logo {
+  width: 100px;
+}
+.settings-box .logo-bar .logo img {
+  max-width: 100%;
+}
+.settings-box > div:not(:first-child) {
+  cursor: pointer;
+}
+.settings-box > div:not(:first-child):hover {
+  background-color: #f2f2f2;
+}
+.settings-box div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-radius: 10px;
+}
+.settings-box div .icon {
+  -ms-flex-preferred-size: 78px;
+      flex-basis: 78px;
+}
+.settings-box div .icon i {
+  font-size: 17px;
+}
+.settings-box div p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 15px;
+  color: #030303;
+  font-weight: 450;
+}
+.settings-box .active {
+  background-color: #f2f2f2;
+}
+
+.box {
+  z-index: 2;
+  top: 0;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+}
+.box .logo-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.box .logo-bar .bar-icon {
+  cursor: pointer;
+}
+.box .logo-bar .bar-icon i {
+  font-size: 20px;
+}
+.box .logo-bar .bar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.box .logo-bar .bar-icon:hover {
+  background-color: #e5e5e5;
+}
+
+@media (max-width: 1320px) {
+  .content-selectors {
+    left: 110px;
+  }
+  .previous {
+    left: 110px;
+  }
+  .settings-box.all {
+    width: 100px;
+    padding: 10px;
+  }
+  .settings-box.all > div {
+    padding: 5px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .settings-box.all > div .icon {
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+    margin: 10px;
+  }
+  .settings-box.all > div p {
+    font-size: 12px;
+    margin: 2px 0 5px 0;
+  }
+  .settings-box.all .active {
+    background-color: white;
+  }
+}
+.content-selectors.small {
+  left: 110px;
+}
+
+.previous.small {
+  left: 110px;
+}
+
+.settings-box.small {
+  width: 100px;
+  padding: 10px;
+}
+.settings-box.small > div {
+  padding: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+.settings-box.small > div .icon {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  margin: 10px;
+}
+.settings-box.small > div p {
+  font-size: 12px;
+  margin: 2px 0 5px 0;
+}
+.settings-box.small .active {
+  background-color: white;
+}
+
+@media (max-width: 790px) {
+  .content-selectors {
+    left: 20px;
+  }
+  .settings-box.all {
+    display: none;
+  }
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(102, 102, 102, 0.5803921569);
 }
