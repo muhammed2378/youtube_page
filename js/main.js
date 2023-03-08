@@ -70,7 +70,7 @@ let settingsBoxOpt = document.querySelector(".settings-box div")
 let iconBarBox = document.querySelector(".settings-box .logo-bar .bar-icon");
 
 // the previous icon
-// let previousIcon = document.querySelector(".previous");
+let previousIcon = document.querySelector(".blockPre");
 
 
 // create layer 
@@ -83,8 +83,11 @@ barIcon.onclick = () => {
     if(window.innerWidth > 1320) {
         // remove the small class from the content selectors and the settings box
         contentSelector.classList.toggle("small")
-        // previousIcon.classList.toggle("small")
+        
         settingsBox.classList.toggle("small")
+        
+        previousIcon.classList.toggle("small")
+
     } else {
         // if it's not greater than 1320 screen width
 
@@ -101,7 +104,9 @@ barIcon.onclick = () => {
         settingsBox.classList.remove("small")
 
         // remove the 'small' class if it's exsit previously
-        contentSelector.classList.toggle("small")
+        contentSelector.classList.remove("small")
+
+        previousIcon.classList.remove("small")
     }
     
 }
@@ -120,3 +125,59 @@ iconBarBox.onclick = () => {
     // remove the 'box' class to remove the box
     settingsBox.classList.remove("box")
 }
+
+
+
+// move the selctores from the right and from the left
+
+
+// next
+
+let next = document.querySelector(".next");
+
+// previous
+let previous = document.querySelector(".previous")
+
+let extremeRight = (contentSelector.clientWidth - screen.width);
+
+
+let left;
+
+let checkLeft = parseInt(getComputedStyle(contentSelector).left) - 10
+
+next.addEventListener("click", () => {
+    left = parseInt(getComputedStyle(contentSelector).left);
+    if(contentSelector.lastElementChild.getBoundingClientRect().right > window.innerWidth){
+        left -= 50;
+    }
+    if(contentSelector.lastElementChild.getBoundingClientRect().right < window.innerWidth) {
+        next.parentElement.style.display = "none";
+    } 
+    if(contentSelector.getBoundingClientRect().x <= checkLeft) {
+        previous.parentElement.style.display = 'flex';
+    }
+    contentSelector.style.left = `${left}px`;
+
+})
+
+
+
+
+
+
+
+
+previous.addEventListener("click", () => {
+    if(contentSelector.getBoundingClientRect().x < checkLeft){
+        // previous.parentElement.style.display = "none";
+        // next.parentElement.style.display = 'flex';
+        left += 50;
+    }
+    if(contentSelector.getBoundingClientRect().x >= checkLeft) {
+        previous.parentElement.style.display = "none";
+    }
+    contentSelector.style.left = `${left}px`;
+})
+
+
+

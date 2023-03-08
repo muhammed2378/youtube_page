@@ -333,6 +333,7 @@ body {
     display: flex;
     left: 270px;
     padding: 20px;
+    transition: .5s linear;
     > div {
         cursor: pointer;
         display: flex;
@@ -358,25 +359,31 @@ body {
     }
 
 }
+.blockPre {
+    display: none;
+    @include blockArrow;
+    left: 250px;
+    .previous {
+        @include arrow;
+        @include popup("Previous", 70px);
+        @include hoverCircle();
+        
+    }
+}
 
-// .previous {
-//     position: fixed;
-//     top: 70px;
-//     left: 270px;
-//     z-index: 2;
-//     align-items: center;
-//     @include popup("Previous", 70px);
-//     @include hoverCircle();
-// }
 
-// .next {
-//     position: fixed;
-//     z-index: 2;
-//     top: 70px;
-//     right: 0;
-//     @include popup("Previous", 70px);
-//     @include hoverCircle();
-// }
+.blockNext {
+    display: flex;
+    @include blockArrow;
+    right: 0px;
+    .next {
+        @include arrow;
+        @include popup("Next", 40px);
+        @include hoverCircle();
+    }
+    
+}
+
 
 
 // end the content selectors
@@ -470,7 +477,7 @@ body {
     .content-selectors {
         left: size.$box-size-small + 10px;
     }
-    .previous {
+    .blockPre {
         left: size.$box-size-small + 10px;
     }
     .settings-box.all {
@@ -502,6 +509,10 @@ body {
 @include mobile(790px) {
     .content-selectors {
         left: 20px;
+    }
+
+    .blockPre {
+        left: 0px;
     }
     .settings-box.all {
         display: none;

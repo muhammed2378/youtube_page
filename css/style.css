@@ -502,6 +502,8 @@ body {
   display: flex;
   left: 270px;
   padding: 20px;
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
 }
 .content-selectors > div {
   cursor: pointer;
@@ -528,6 +530,138 @@ body {
 .content-selectors .active {
   background-color: #030303;
   color: #f2f2f2;
+}
+
+.blockPre {
+  display: none;
+  position: fixed;
+  top: 75px;
+  z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  left: 250px;
+}
+.blockPre .previous {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.blockPre .previous i {
+  font-size: 20px;
+}
+.blockPre .previous span {
+  text-align: center;
+  padding: 8px 5px;
+  display: none;
+  width: 70px;
+  position: absolute;
+  z-index: 100;
+  bottom: -60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #707070;
+  border-radius: 2px;
+}
+.blockPre .previous span::after {
+  content: "Previous";
+  font-size: 13px;
+  color: #F2F2F2;
+}
+.blockPre .previous:hover span {
+  display: block;
+}
+.blockPre .previous {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.blockPre .previous:hover {
+  background-color: #e5e5e5;
+}
+
+.blockNext {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 75px;
+  z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  right: 0px;
+}
+.blockNext .next {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.blockNext .next i {
+  font-size: 20px;
+}
+.blockNext .next span {
+  text-align: center;
+  padding: 8px 5px;
+  display: none;
+  width: 40px;
+  position: absolute;
+  z-index: 100;
+  bottom: -60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #707070;
+  border-radius: 2px;
+}
+.blockNext .next span::after {
+  content: "Next";
+  font-size: 13px;
+  color: #F2F2F2;
+}
+.blockNext .next:hover span {
+  display: block;
+}
+.blockNext .next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.blockNext .next:hover {
+  background-color: #e5e5e5;
 }
 
 .settings-box {
@@ -634,7 +768,7 @@ body {
   .content-selectors {
     left: 110px;
   }
-  .previous {
+  .blockPre {
     left: 110px;
   }
   .settings-box.all {
@@ -666,8 +800,8 @@ body {
   left: 110px;
 }
 
-.previous.small {
-  left: 110px;
+.blockPre.small {
+  left: 100px;
 }
 
 .settings-box.small {
@@ -698,6 +832,9 @@ body {
 @media (max-width: 790px) {
   .content-selectors {
     left: 20px;
+  }
+  .blockPre {
+    left: 0px;
   }
   .settings-box.all {
     display: none;

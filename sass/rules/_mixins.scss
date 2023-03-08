@@ -66,8 +66,8 @@
     .content-selectors.small {
         left: $box-size-small + 10px;
     }
-    .previous.small {
-        left: $box-size-small + 10px;
+    .blockPre.small {
+        left: $box-size-small;
     }
     .settings-box.small {
         width: $box-size-small;
@@ -88,6 +88,29 @@
         .active {
             background-color: white;
         }
+    }
+}
+
+@mixin blockArrow {
+    position: fixed;
+    top: 75px;
+    z-index: 1;
+    align-items: center;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+}
+
+@mixin arrow {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    i {
+        font-size: $icon-size;
     }
 }
 
