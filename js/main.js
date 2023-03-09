@@ -72,11 +72,16 @@ let iconBarBox = document.querySelector(".settings-box .logo-bar .bar-icon");
 // the previous icon
 let previousIcon = document.querySelector(".blockPre");
 
+// content
+
+let content = document.querySelector(".content");
+
+
 
 // create layer 
 let layer = document.createElement("div");
-document.body.append(layer)
 
+document.body.append(layer)
 
 barIcon.onclick = () => {
     // only if it's greater than 1320 screen width
@@ -87,6 +92,8 @@ barIcon.onclick = () => {
         settingsBox.classList.toggle("small")
         
         previousIcon.classList.toggle("small")
+
+        content.classList.toggle("small")
 
     } else {
         // if it's not greater than 1320 screen width
@@ -107,6 +114,8 @@ barIcon.onclick = () => {
         contentSelector.classList.remove("small")
 
         previousIcon.classList.remove("small")
+
+        content.classList.remove("small")
     }
     
 }
@@ -175,7 +184,12 @@ previous.addEventListener("click", () => {
     }
     if(contentSelector.getBoundingClientRect().x >= checkLeft) {
         previous.parentElement.style.display = "none";
+        
     }
+    if(contentSelector.getBoundingClientRect().x <= checkLeft) {
+        next.parentElement.style.display = "flex";
+    }
+    
     contentSelector.style.left = `${left}px`;
 })
 

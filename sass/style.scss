@@ -15,8 +15,12 @@ body {
 // Start the heading design
 
 .heading {
+    position: fixed;
+    width: 100%;
     padding-top: 10px;
     max-height: 65px;
+    background-color: white;
+    z-index: 2;
     .container {
         max-width: 100%;
         padding: 0 30px;
@@ -331,9 +335,12 @@ body {
 .content-selectors {
     position: fixed;
     display: flex;
+    top: 60px;
     left: 270px;
     padding: 20px;
     transition: .5s linear;
+    z-index: 1;
+    background-color: white;
     > div {
         cursor: pointer;
         display: flex;
@@ -359,6 +366,7 @@ body {
     }
 
 }
+
 .blockPre {
     display: none;
     @include blockArrow;
@@ -397,12 +405,14 @@ body {
     
     position: fixed;
     padding: 15px 10px 0;
-    height: 1000px;
+    top: 70px;
+    height: 100vh;
     width: size.$box-size;
     color: #000;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
+    z-index: 2;
     .logo-bar {
         display: none;
         justify-content: start;
@@ -456,7 +466,7 @@ body {
 
 // this class to make a box for the settings on clicking the bar icon 
 .box {
-    z-index: 2;
+    z-index: 3;
     top: 0;
     transition: .1s linear;
     .logo-bar {
@@ -477,6 +487,7 @@ body {
     .content-selectors {
         left: size.$box-size-small + 10px;
     }
+
     .blockPre {
         left: size.$box-size-small + 10px;
     }
@@ -503,14 +514,13 @@ body {
 }
 
 // on clicking the icon bar above the 1320px width modify the box to this
-@include modifiedBox;
+
 
 // hide the box under 790px screen width
 @include mobile(790px) {
     .content-selectors {
         left: 20px;
     }
-
     .blockPre {
         left: 0px;
     }
@@ -525,9 +535,99 @@ body {
 .overlay {
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: map-get($map: $primary_colors, $key: layer);
 }
+
+
+// content
+
+.content {
+    display: flex;
+    padding-right: 20px;
+    width: calc(100% - 290px);
+    position: relative;
+    left: 290px;
+    transition: .5s linear;
+    @include customeQuerry(1320px) {
+        left: size.$box-size-small + 10px; 
+        width: calc(100% - (size.$box-size-small + 10px));
+    }
+    @include mobile(790px) {
+        left: 42px;
+        width: calc(100% - 42px);
+    }
+    top: 145px;
+    flex-direction: column;
+    .rows {
+        padding-right: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        // flex-wrap: wrap;
+        // justify-content: center;
+        column-gap: 10px;
+        row-gap: 50px;
+        
+        .video {
+            // flex-basis: 300px;
+            // margin: 0px 10px 50px 10px;
+            // margin-bottom: 20px;
+
+            .bck-img {
+                border-radius: 10px;
+                overflow: hidden;
+                width: 100%;
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            .dtls {
+                display: flex;
+                .ch-logo {
+                    margin-top: 15px;
+                    margin-right: 10px;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    img {
+                        max-width: 100%
+                    }
+                }
+                .video-info {
+                    margin-top: 15px;
+                    .title {
+                        font-size: 17px;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                        
+                    }
+                    .channel-name {
+                        color: map-get($map: $primary_colors, $key: channel-color);
+                        font-size: 15px;
+                        i {
+                            font-size: 9px;
+                            border-radius: 50%;
+                            background-color: map-get($map: $primary_colors, $key: channel-color);
+                            padding: 1px;
+                            color: white;
+                        }
+                    }
+                    .views {
+                        color: map-get($map: $primary_colors, $key: channel-color);
+                        margin-top: 4px;
+                        font-size: 12px;
+                    }
+                    * {
+                        margin: 0
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include modifiedBox;

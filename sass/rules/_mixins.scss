@@ -66,6 +66,12 @@
     .content-selectors.small {
         left: $box-size-small + 10px;
     }
+
+    .content.small {
+        left: $box-size-small + 30px;
+        width: calc(100% - ($box-size-small + 10px));
+    }
+
     .blockPre.small {
         left: $box-size-small;
     }
@@ -93,10 +99,9 @@
 
 @mixin blockArrow {
     position: fixed;
-    top: 75px;
-    z-index: 1;
+    top: 70px;
+    z-index: 2;
     align-items: center;
-    
     justify-content: center;
     align-items: center;
     padding: 10px;
