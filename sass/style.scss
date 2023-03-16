@@ -24,6 +24,7 @@ body {
     .container {
         max-width: 100%;
         padding: 0 30px;
+        padding-bottom: 10px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -352,9 +353,13 @@ body {
         border-radius: 10px;
         padding: 0 5px;
         font-size: 15px;
+        transition: .3s linear;
         p {
             margin: 10px;
             padding: 10px auto;
+        }
+        &:hover {
+            background-color: #d3d3d3;
         }
     }
 
@@ -362,7 +367,11 @@ body {
 
     .active {
         background-color: map-get($map: $primary_colors, $key: title-color);
-        color: map-get($map: $primary_colors, $key: hover-color)
+        color: map-get($map: $primary_colors, $key: hover-color);
+        &:hover {
+            background-color: map-get($map: $primary_colors, $key: title-color);
+            color: map-get($map: $primary_colors, $key: hover-color);
+        }
     }
 
 }
@@ -485,11 +494,11 @@ body {
 
 @include customeQuerry(1320px) {
     .content-selectors {
-        left: size.$box-size-small + 10px;
+        left: size.$box-size-small + 9px;
     }
 
     .blockPre {
-        left: size.$box-size-small + 10px;
+        left: size.$box-size-small;
     }
     .settings-box.all {
         width: size.$box-size-small;
@@ -570,16 +579,20 @@ body {
         // justify-content: center;
         column-gap: 10px;
         row-gap: 50px;
+        perspective: 600px;
         
         .video {
-            // flex-basis: 300px;
-            // margin: 0px 10px 50px 10px;
-            // margin-bottom: 20px;
-
+            transition: .5s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 2px 2px 2px #DDD;
+                border-radius: 10px;
+            }
             .bck-img {
                 border-radius: 10px;
                 overflow: hidden;
                 width: 100%;
+                cursor: pointer;
                 img {
                     max-width: 100%;
                 }
@@ -596,6 +609,7 @@ body {
                     img {
                         max-width: 100%
                     }
+                    
                 }
                 .video-info {
                     margin-top: 15px;

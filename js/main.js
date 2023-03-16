@@ -77,6 +77,12 @@ let previousIcon = document.querySelector(".blockPre");
 let content = document.querySelector(".content");
 
 
+let leftClone = parseInt(getComputedStyle(contentSelector).left)
+
+let left;
+
+let checkLeft = parseInt(getComputedStyle(contentSelector).left) - 50
+
 
 // create layer 
 let layer = document.createElement("div");
@@ -84,6 +90,11 @@ let layer = document.createElement("div");
 document.body.append(layer)
 
 barIcon.onclick = () => {
+
+    leftClone = parseInt(getComputedStyle(contentSelector).left)
+
+    
+
     // only if it's greater than 1320 screen width
     if(window.innerWidth > 1320) {
         // remove the small class from the content selectors and the settings box
@@ -94,6 +105,17 @@ barIcon.onclick = () => {
         previousIcon.classList.toggle("small")
 
         content.classList.toggle("small")
+
+
+        if (leftClone == 270) {
+            contentSelector.style.left = `${110}px`;
+            checkLeft = 110 - 50
+            console.log(checkLeft)
+        }else if (leftClone == 110) {
+            contentSelector.style.left = `${270}px`;
+            checkLeft = 270 - 50
+            console.log(checkLeft)
+        }
 
     } else {
         // if it's not greater than 1320 screen width
@@ -117,6 +139,7 @@ barIcon.onclick = () => {
 
         content.classList.remove("small")
     }
+    // console.log(checkLeft)
     
 }
 
@@ -150,19 +173,21 @@ let previous = document.querySelector(".previous")
 let extremeRight = (contentSelector.clientWidth - screen.width);
 
 
-let left;
 
-let checkLeft = parseInt(getComputedStyle(contentSelector).left) - 10
+
+
+
+
 
 next.addEventListener("click", () => {
     left = parseInt(getComputedStyle(contentSelector).left);
     if(contentSelector.lastElementChild.getBoundingClientRect().right > window.innerWidth){
-        left -= 50;
+        left -= 100;
     }
-    if(contentSelector.lastElementChild.getBoundingClientRect().right < window.innerWidth) {
+    if(contentSelector.lastElementChild.getBoundingClientRect().right - 100 < window.innerWidth) {
         next.parentElement.style.display = "none";
     } 
-    if(contentSelector.getBoundingClientRect().x <= checkLeft) {
+    if(contentSelector.getBoundingClientRect().x < checkLeft + 70) {
         previous.parentElement.style.display = 'flex';
     }
     contentSelector.style.left = `${left}px`;
@@ -172,7 +197,7 @@ next.addEventListener("click", () => {
 
 
 
-
+// previous button handling
 
 
 
@@ -180,17 +205,40 @@ previous.addEventListener("click", () => {
     if(contentSelector.getBoundingClientRect().x < checkLeft){
         // previous.parentElement.style.display = "none";
         // next.parentElement.style.display = 'flex';
-        left += 50;
+        left += 100;
+    } else {
+        left = checkLeft + 50
     }
+
     if(contentSelector.getBoundingClientRect().x >= checkLeft) {
+        console.log(checkLeft)
         previous.parentElement.style.display = "none";
         
     }
     if(contentSelector.getBoundingClientRect().x <= checkLeft) {
         next.parentElement.style.display = "flex";
+        console.log(checkLeft)
     }
     
     contentSelector.style.left = `${left}px`;
+})
+
+
+// active selectors
+
+let contentSelectorEL = document.querySelectorAll(".content-selectors div")
+
+contentSelectorEL.forEach((e) => {
+    e.addEventListener("click", () => {
+
+        // remove all the active classes
+        contentSelectorEL.forEach((x) => {
+            x.classList.remove("active")
+        })
+        
+        // add the active class to the clicked selector
+        e.classList.add("active")
+    })
 })
 
 

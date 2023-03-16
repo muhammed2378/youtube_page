@@ -18,6 +18,7 @@ body {
 .heading .container {
   max-width: 100%;
   padding: 0 30px;
+  padding-bottom: 10px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -529,12 +530,21 @@ body {
   border-radius: 10px;
   padding: 0 5px;
   font-size: 15px;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 .content-selectors > div p {
   margin: 10px;
   padding: 10px auto;
 }
+.content-selectors > div:hover {
+  background-color: #d3d3d3;
+}
 .content-selectors .active {
+  background-color: #030303;
+  color: #f2f2f2;
+}
+.content-selectors .active:hover {
   background-color: #030303;
   color: #f2f2f2;
 }
@@ -775,13 +785,13 @@ body {
 
 @media (max-width: 1320px) {
   .content-selectors {
-    left: 110px;
+    left: 99px;
   }
   .blockPre {
-    left: 110px;
+    left: 90px;
   }
   .settings-box.all {
-    width: 100px;
+    width: 90px;
     padding: 10px;
   }
   .settings-box.all > div {
@@ -844,8 +854,8 @@ body {
 }
 @media (max-width: 1320px) {
   .content {
-    left: 110px;
-    width: calc(100% - 110px);
+    left: 100px;
+    width: calc(100% - 100px);
   }
 }
 @media (max-width: 790px) {
@@ -863,11 +873,25 @@ body {
      -moz-column-gap: 10px;
           column-gap: 10px;
   row-gap: 50px;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+}
+.content .rows .video {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.content .rows .video:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 2px 2px 2px #DDD;
+          box-shadow: 2px 2px 2px #DDD;
+  border-radius: 10px;
 }
 .content .rows .video .bck-img {
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
+  cursor: pointer;
 }
 .content .rows .video .bck-img img {
   max-width: 100%;
@@ -916,20 +940,20 @@ body {
 }
 
 .content-selectors.small {
-  left: 110px;
+  left: 99px;
 }
 
 .content.small {
-  left: 130px;
-  width: calc(100% - 110px);
+  left: 120px;
+  width: calc(100% - 100px);
 }
 
 .blockPre.small {
-  left: 100px;
+  left: 90px;
 }
 
 .settings-box.small {
-  width: 100px;
+  width: 90px;
   padding: 10px;
 }
 .settings-box.small > div {

@@ -64,7 +64,7 @@
 
 @mixin modifiedBox{
     .content-selectors.small {
-        left: $box-size-small + 10px;
+        left: $box-size-small + 9px;
     }
 
     .content.small {
