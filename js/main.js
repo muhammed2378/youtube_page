@@ -181,15 +181,24 @@ let extremeRight = (contentSelector.clientWidth - screen.width);
 
 next.addEventListener("click", () => {
     left = parseInt(getComputedStyle(contentSelector).left);
+
+
+    // modify the selectors on clicking the next icon
     if(contentSelector.lastElementChild.getBoundingClientRect().right > window.innerWidth){
         left -= 100;
     }
+
+    // remove the next icon
     if(contentSelector.lastElementChild.getBoundingClientRect().right - 100 < window.innerWidth) {
         next.parentElement.style.display = "none";
     } 
+
+    // show the previous icon
     if(contentSelector.getBoundingClientRect().x < checkLeft + 70) {
         previous.parentElement.style.display = 'flex';
     }
+
+    // modify the x axis
     contentSelector.style.left = `${left}px`;
 
 })
@@ -202,29 +211,34 @@ next.addEventListener("click", () => {
 
 
 previous.addEventListener("click", () => {
+
+    // modify the left on clicking the previous icon
     if(contentSelector.getBoundingClientRect().x < checkLeft){
-        // previous.parentElement.style.display = "none";
-        // next.parentElement.style.display = 'flex';
         left += 100;
     } else {
         left = checkLeft + 50
     }
-
+    
+    // remove the previous icon
     if(contentSelector.getBoundingClientRect().x >= checkLeft) {
         console.log(checkLeft)
         previous.parentElement.style.display = "none";
         
     }
+
+    // show the next icon
     if(contentSelector.getBoundingClientRect().x <= checkLeft) {
         next.parentElement.style.display = "flex";
         console.log(checkLeft)
     }
     
+
+    // add the x axis
     contentSelector.style.left = `${left}px`;
 })
 
 
-// active selectors
+// active selector onclicking
 
 let contentSelectorEL = document.querySelectorAll(".content-selectors div")
 
